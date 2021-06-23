@@ -18,7 +18,7 @@ conn.sync({ force: true }).then(() => {
     Recipe.create({
       title: 'Ajiaco',
       image: 'https://www.och-lco.ca/wp-content/uploads/2015/07/unavailable-image.jpg',
-      summary: 'Esta sopa suele ser espesa y rica, y es una comida principal. Tradicionalmente se añaden tortas de harina de maíz o 'arepas' a muchas comidas, y en este plato aguacate, arroz y alcaparras.',
+      summary: 'Esta sopa suele ser espesa y rica, y es una comida principal. Tradicionalmente se añaden tortas de harina de maíz o arepas a muchas comidas, y en este plato aguacate, arroz y alcaparras.',
       score: 95,
       healthScore: 78,
       instructions: 'En una olla suficientemente grande se vierte el agua y al leche y se colocan las pechugas y el gajo de cebolla entero, y se pone a fuego medio alto. Luego se añaden el cubo de caldo de gallina, las hojas de laurel, sal, comino y pimienta al gusto. Se añaden las mazorcas, las papas rojas y se dejan cocinar hasta que ablanden. Luego se adiciona las papas criollas (o papas amarillas), y se dejan cocinar hasta que espese. Se saca el pollo aparte para poder desmenuzarlo en trozos medianos. Se baja la temperatura a fuego medio, y se le agrega de nuevo el pollo. Se agrega un manojo de guascas (o se puede sustituir por una cucharada de orégano y se retiran antes de servir. Se retira la olla del fuego y se sirve el ajiaco caliente.',

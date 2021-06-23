@@ -20,7 +20,7 @@ function getRecipes(req, res, next) {
 		})
 		.then((localResponse) => {
 			localRecipes = localResponse.filter((recipe) => {
-				return recipe.name.toLowerCase().includes(nameQuery);
+				return recipe.title.toLowerCase().includes(nameQuery);
 			});
 			return res.json([...localRecipes, ...remoteRecipes].slice(0, 9));
 		})
@@ -66,8 +66,8 @@ function createRecipe(req, res, next) {
 		title,
 		image: 'https://www.och-lco.ca/wp-content/uploads/2015/07/unavailable-image.jpg',
 		summary,
-		score: parseInt(score),
-		healthScore: parseInt(healthScore),
+		score: parseFloat(score),
+		healthScore: parseFloat(healthScore),
 		instructions,
 	})
 		.then((newRecipe) => {
