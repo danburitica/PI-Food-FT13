@@ -1,0 +1,34 @@
+/*.background-container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome {
+	font-family: 'Rubik', sans-serif;
+	color: #fff;
+}
+
+.brand-text {
+	color: #cbf3f0;
+}
+
+.principal-container {
+	display: flex;
+    align-items: center;
+}
+
+.info p {
+	font-family: 'Poppins', sans-serif;
+	color: #fff;
+}
+
+.btn-info {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	background-color: #2ec4b6;
+}
+*/
+.principal-img img {
+	max-height: 80vh;
+}
