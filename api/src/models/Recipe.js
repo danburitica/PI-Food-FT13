@@ -9,9 +9,12 @@ module.exports = (sequelize) => {
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
-      name: {
+      title: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      image: {
+        type: DataTypes.STRING,
       },
       summary: {
         type: DataTypes.TEXT,
@@ -23,7 +26,7 @@ module.exports = (sequelize) => {
       healthScore: {
         type: DataTypes.REAL,
       },
-      steps: {
+      instructions: {
         type: DataTypes.TEXT,
       },
     }

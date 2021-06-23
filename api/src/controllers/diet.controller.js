@@ -37,7 +37,7 @@ let diets = [
 function getDiets(req, res, next) {
 	Diet.findAll()
 		.then((response) => {
-			if (!response.length) {
+			if (response.length>0) {
 				return res.json(response).status(200);
 			} else {
 				Diet.bulkCreate(diets)
