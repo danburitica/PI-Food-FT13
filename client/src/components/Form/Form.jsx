@@ -40,11 +40,6 @@ const validateForm = function (form) {
 	} else {
 		errors.summary = '';
 	}
-	if (!form.diets.length) {
-		errors.diets = 'Select one or more diets';
-	} else {
-		errors.diets = '';
-	}
 	if (!form.instructions) {
 		errors.instructions = 'Type a Instructions';
 	} else {
@@ -95,12 +90,10 @@ export default function Form() {
 	const handleSubmit = function (e) {
 		e.preventDefault();
 		if (
-			!errors &&
 			!errors.title &&
 			!errors.score &&
 			!errors.healthScore &&
 			!errors.summary &&
-			!errors.diets &&
 			!errors.instructions
 		) {
 			axios

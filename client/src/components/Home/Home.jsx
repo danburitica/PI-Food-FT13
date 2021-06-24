@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes } from '../../actions/index.js';
 import loadingImg from '../../img/loading-img.svg';
 
+import './Home.css'
+
 import Card from '../Card/Card.jsx';
 import Search from '../Search/Search.jsx';
 
@@ -221,7 +223,7 @@ export default function Home() {
 					))
 				) : (
 					<img
-						style={{ width: '10vw' }}
+						className='loading'
 						src={loadingImg}
 						alt='Loading'
 					/>

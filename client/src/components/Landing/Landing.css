@@ -1,34 +1,59 @@
-/*.background-container {
+.background-container {
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+	background-color: #ff9f1c;
+	height: 80vh;
+	justify-content: space-evenly;
+	padding: 3rem 3rem 1rem 3rem;
 }
 
 .welcome {
 	font-family: 'Rubik', sans-serif;
 	color: #fff;
+	font-size: 2.5em;
+	margin-bottom: 0;
 }
 
-.brand-text {
-	color: #cbf3f0;
+.brand-text-landing {
+	font-family: 'Monoton', cursive;
+	color: #000;
+	font-size: 4em;
 }
 
 .principal-container {
 	display: flex;
-    align-items: center;
+	flex-direction: column;
+}
+.info {
+	margin-top: 2rem;	
 }
 
 .info p {
 	font-family: 'Poppins', sans-serif;
 	color: #fff;
+	font-size: 1.2em;
+	font-weight: 300;
 }
 
 .btn-info {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
-	background-color: #2ec4b6;
+	background-color: #2ec4b5;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 1.2em;
+	width: 30vw;
+	height: 10vh;
 }
-*/
+
+.btn-info:hover {
+	background-color: #cbf3f0;
+	color: #2ec4b5;
+}
+
 .principal-img img {
-	max-height: 80vh;
+	max-height: 75vh;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
