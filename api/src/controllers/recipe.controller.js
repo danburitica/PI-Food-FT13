@@ -17,7 +17,7 @@ function getRecipes(req, res, next) {
 				remoteRecipes = apiResponse.data.results.filter((recipe) => {
 					return recipe.title.toLowerCase().includes(nameQuery);
 				});
-				return Recipe.findAll({ include: [Diet], where: {name: {[Op.iLike]: `${nameQuery}`}} });
+				return Recipe.findAll({ include: [Diet] });
 			})
 			.then((localResponse) => {
 				localRecipes = localResponse.filter((recipe) => {
@@ -73,19 +73,18 @@ function createRecipe(req, res, next) {
 	const { title, summary, score, healthScore, instructions, diets } = req.body;
 	Recipe.create({
 		title,
-		image: 'https://www.och-lco.ca/wp-content/uploads/2015/07/unavailable-image.jpg',
+		image: 'https://image.freepik.com/vector-gratis/pagina-error-404-no-encontrada-donut_114341-54.jpg',
 		summary,
 		score: parseFloat(score),
 		healthScore: parseFloat(healthScore),
 		instructions,
 	})
-		.then((newRecipe) => {
-			newRecipe.setDiets(diets);
+		.then((recipeCreated) => {
+			return recipeCreated.setDiets(diets);
 		})
 		.then(newRecipe => {
 			return res.json({
 				message: 'Recipe created successfully',
-				data: newRecipe,
 			});
 		})
 		.catch((error) => next(error));
