@@ -6,8 +6,10 @@ import './Card.css';
 export default function Card({id, title, image, diets}) {
 	const getDiets = function () {
 		let arrayDiets = [];
-		for(let diet of diets) {
-			typeof diet === 'object' ? arrayDiets.push(diet.name) : arrayDiets.push(diet);
+		if (diets) {
+			for(let diet of diets) {
+				typeof diet === 'object' ? arrayDiets.push(diet.name) : arrayDiets.push(diet);
+			}
 		}
 		return arrayDiets.join(', ');
 	}
