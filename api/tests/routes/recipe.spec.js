@@ -4,12 +4,13 @@ const session = require('supertest-session');
 const app = require('../../src/app.js');
 const { Recipe, conn } = require('../../src/db.js');
 
-const agent = session(app);
+const server = session(app);
 const recipe = {
-  name: 'Milanea a la napolitana',
+  title: 'Arepa de huevo',
+  summary: 'Arepa con huevo adentro, frita'
 };
 
-describe('Recipe routes', () => {
+xdescribe('Recipe routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
@@ -18,7 +19,7 @@ describe('Recipe routes', () => {
     .then(() => Recipe.create(recipe)));
   describe('GET /recipes', () => {
     it('should get 200', () =>
-      agent.get('/recipes').expect(200)
+      server.get('/recipes').expect(200)
     );
   });
 });
