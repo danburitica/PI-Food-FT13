@@ -6,7 +6,7 @@ conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
     
-    Recipe.create({
+    /*Recipe.create({
       title: 'Arepa de Huevo',
       image: 'https://image.freepik.com/vector-gratis/pagina-error-404-no-encontrada-donut_114341-54.jpg',
       summary: 'Esta es una deliciosa receta de la costa caribeña de Colombia. Estas populares arepas de maíz a menudo se preparan en los pequeños mercados callejeros y verá una larga cola de clientes esperando para comprarlas.',
@@ -31,7 +31,7 @@ conn.sync({ force: true }).then(() => {
       score: 95,
       healthScore: 95,
       instructions: 'En una olla se coloca el agua, canela y la panela a hervir hasta que la panela o azúcar se derrita completamente.Se retiran las astillas de canela y se sirve caliente o fría. Se puede agregar el limón al servir.',
-    });
+    });*/
 
   });
 });
