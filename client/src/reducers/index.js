@@ -2,14 +2,14 @@ import {
 	GET_RECIPES,
 	GET_RECIPES_BY_NAME,
 	GET_RECIPE_BY_ID,
-	GET_DIETS,
+	GET_DIETS
 } from '../actions/index.js';
 
 const initialState = {
 	recipes: [],
 	recipesByName: [],
 	recipeById: {},
-	diets: [],
+	diets: []
 };
 
 function reducer(state = initialState, action) {

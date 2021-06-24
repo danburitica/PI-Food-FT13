@@ -190,7 +190,10 @@ export default function Home() {
 							</select>
 
 							<span>Filter By Diet: </span>
-							<select className='filter-select' onChange={(e) => setFilter(e.target.value)}>
+							<select
+								className='filter-select'
+								onChange={(e) => setFilter(e.target.value)}
+							>
 								<option default value=''>
 									Select a Diet
 								</option>
@@ -222,20 +225,28 @@ export default function Home() {
 							id={recipe.id}
 							title={recipe.title}
 							image={recipe.image}
-							diets={recipe.diets && recipe.diets.join(', ')}
+							diets={recipe.diets}
 						/>
 					))
 				) : (
 					<div>
-						<img className='loading rotated' src={loadingImg} alt='Loading' />
+						<img
+							className='loading rotated'
+							src={loadingImg}
+							alt='Loading'
+						/>
 						<h2>¡Loading...!</h2>
 					</div>
 				)}
 			</div>
 			<div className='pagination'>
-				<button className='btn-page' onClick={previous}>PREVIOUS</button>
+				<button className='btn-page' onClick={previous}>
+					PREVIOUS
+				</button>
 				<span className='num-page'>{page}</span>
-				<button className='btn-page' onClick={next}>NEXT</button>
+				<button className='btn-page' onClick={next}>
+					NEXT
+				</button>
 			</div>
 		</React.Fragment>
 	);
