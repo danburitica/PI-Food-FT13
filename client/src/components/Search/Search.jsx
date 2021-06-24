@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRecipesByName } from '../../actions/index.js';
 
-export default function Search({ setVisible }) {
+export default function Search({ setSearch }) {
 	const [nameRecipe, setNameRecipe] = useState('');
 	const dispatch = useDispatch();
 
@@ -14,11 +14,11 @@ export default function Search({ setVisible }) {
 		if (nameRecipe) {
 			e.preventDefault();
 			dispatch(getRecipesByName(nameRecipe));
-			setVisible(true);
+			setSearch(true);
 			setNameRecipe('');
 		}else{
 			e.preventDefault();
-			setVisible(false);
+			setSearch(false);
 		}
 	}
 
