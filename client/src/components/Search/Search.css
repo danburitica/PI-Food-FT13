@@ -1,0 +1,22 @@
+.input-search {
+	padding: 0 0.5rem;
+	height: 6vh;
+	width: 20vw;
+	border-radius: 10px;
+}
+.btn-search {
+	font-family: 'Rubik', sans-serif;
+	background-color: #ff9f1c;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 1.2em;
+	width: 8vw;
+	height: 6vh;
+	margin-left: 1rem;
+}
+
+.btn-search:hover {
+	background-color: #ffbf69;
+	color: #ebebeb;
+}

@@ -185,8 +185,8 @@ export default function Home() {
 							<span>Order: </span>
 							<select onChange={handleSort}>
 								<option default value=''></option>
-								<option value='high'>High Score</option>
-								<option value='low'>Low Score</option>
+								<option value='high'>High</option>
+								<option value='low'>Low</option>
 							</select>
 
 							<span>Filter By Diet: </span>

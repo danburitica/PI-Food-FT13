@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRecipesByName } from '../../actions/index.js';
 
+import './Search.css'
+
 export default function Search({ setSearch }) {
 	const [nameRecipe, setNameRecipe] = useState('');
 	const dispatch = useDispatch();
@@ -26,12 +28,13 @@ export default function Search({ setSearch }) {
 		<React.Fragment>
 			<form onSubmit={handleSubmit}>
 				<input
+					className='input-search'
 					type='text'
 					placeholder='Search pasta'
 					value={nameRecipe}
 					onChange={handleChange}
 				/>
-				<button type='submit'>Search</button>
+				<button className='btn-search' type='submit'>Search</button>
 			</form>
 		</React.Fragment>
 	);
