@@ -119,6 +119,7 @@ export default function Form() {
 				<form>
 					<div className='form-container'>
 						<div className='form-left-container'>
+							<p className={errors.title ? "danger" : "pass"}>{errors.title}</p>
 							<input
 								type='text'
 								id='title'
@@ -126,8 +127,9 @@ export default function Form() {
 								value={form.title}
 								onChange={handleChange}
 								placeholder='Title'
+								className={errors.title && "danger"}
 							/>
-
+							<p className={errors.score ? "danger" : "pass"}>{errors.score}</p>
 							<input
 								type='text'
 								id='score'
@@ -135,8 +137,9 @@ export default function Form() {
 								value={form.score}
 								onChange={handleChange}
 								placeholder='Score'
+								className={errors.score && "danger"}
 							/>
-
+							<p className={errors.healthScore ? "danger" : "pass"}>{errors.healthScore}</p>
 							<input
 								type='text'
 								id='healthScore'
@@ -144,22 +147,25 @@ export default function Form() {
 								value={form.healthScore}
 								onChange={handleChange}
 								placeholder='Health Score'
+								className={errors.healthScore && "danger"}
 							/>
-
+							<p className={errors.summary ? "danger" : "pass"}>{errors.summary}</p>
 							<textarea
 								name='summary'
 								id='summary'
 								value={form.summary}
 								onChange={handleChange}
 								placeholder='Summary'
+								className={errors.summary && "danger"}
 							></textarea>
-
+							<p className={errors.instructions ? "danger" : "pass"}>{errors.instructions}</p>
 							<textarea
 								name='instructions'
 								id='instructions'
 								value={form.instructions}
 								onChange={handleChange}
 								placeholder='Instructions'
+								className={errors.instructions && "danger"}
 							></textarea>
 						</div>
 						<div className='form-right-container'>

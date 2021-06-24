@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	background-color: #ebebeb;
-	height: 90vh;
+	height: 100vh;
 }
 
 .form-title {
@@ -18,13 +18,13 @@
 .form-left-container {
 	display: flex;
 	flex-direction: column;
-	margin: 0 3rem;
+	margin: 0 5rem;
 }
 
 .form-right-container {
 	display: flex;
 	flex-direction: column;
-	margin: 0 3rem;
+	margin: 0 5rem;
 }
 
 .form-left-container input {
@@ -32,49 +32,49 @@
 	height: 6vh;
 	width: 20vw;
 	border-radius: 10px;
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .form-left-container textarea {
 	padding: 1rem 0.5rem;
-    height: 8vh;
-    width: 20vw;
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
+	height: 8vh;
+	width: 20vw;
+	border-radius: 5px;
+	margin-bottom: 1rem;
 }
 
 .form-buttons {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }
 
 .form-diets {
 	display: flex;
-    flex-direction: column;
-    font-family: 'Poppins';
+	flex-direction: column;
+	font-family: 'Poppins';
 }
 
-.form-diets p{
-    font-family: 'Rubik', sans-serif;
-    color: #ff9f1c;
-    margin-top: 0;
+.form-diets p {
+	font-family: 'Rubik', sans-serif;
+	color: #ff9f1c;
+	margin-top: 0;
 }
 
-.form-diets label{
-    margin: 0.3rem 0;
+.form-diets label {
+	margin: 0.3rem 0;
 }
 
 .btn-create {
 	font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    background-color: #2ec4b5;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 1.2em;
-    width: 12vw;
-    height: 7vh;
-    margin-left: 3rem;
+	font-weight: 500;
+	background-color: #2ec4b5;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 1.2em;
+	width: 12vw;
+	height: 7vh;
+	margin-left: 3rem;
 }
 
 .btn-create:hover {
@@ -84,17 +84,36 @@
 
 .btn-reset {
 	font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    background-color: #ff9f1c;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 1.2em;
-    width: 12vw;
-    height: 7vh;
+	font-weight: 500;
+	background-color: #ff9f1c;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 1.2em;
+	width: 12vw;
+	height: 7vh;
 }
 
 .btn-reset:hover {
 	background-color: #ffbf69;
 	color: #ebebeb;
+}
+
+p.danger {
+	font-family: 'Poppins';
+	color: #f55c47;
+	text-align: center;
+	margin: 0;
+}
+
+p.pass {
+	display:  none;
+}
+
+input.danger {
+	border: 2px solid #f55c47;
+}
+
+textarea.danger {
+	border: 2px solid #f55c47;
 }
