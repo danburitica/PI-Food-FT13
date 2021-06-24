@@ -51,7 +51,7 @@ const validateForm = function (form) {
 };
 
 export default function Form() {
-	/*const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	const diets = useSelector((state) => state.diets);
 
@@ -110,7 +110,7 @@ export default function Form() {
 		} else {
 			alert('Check your New Recipe, there is Something Wrong :(');
 		}
-	};*/
+	};
 
 	return (
 		<React.Fragment>

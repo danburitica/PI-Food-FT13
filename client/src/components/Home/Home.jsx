@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes } from '../../actions/index.js';
+import { getRecipes, switchLoading } from '../../actions/index.js';
 import loadingImg from '../../img/loading-img.svg';
 
 import './Home.css';
@@ -13,6 +13,7 @@ export default function Home() {
 
 	const searchRecipes = useSelector((state) => state.recipesByName);
 	const allRecipes = useSelector((state) => state.recipes);
+	const loading = useSelector((state) => state.loading);
 
 	const [search, setSearch] = useState(false);
 	const [page, setPage] = useState(1);
@@ -23,7 +24,13 @@ export default function Home() {
 	const [orderedRecipes, setOrderedRecipes] = useState([]);
 
 	useEffect(() => {
-		dispatch(getRecipes());
+		const start = async () => {
+			await dispatch(getRecipes());
+		};
+		setTimeout(()=>{
+			dispatch(switchLoading(false));
+		}, 5000)
+		start();
 	}, []);
 
 	//BÚSQUEDA
@@ -218,7 +225,16 @@ export default function Home() {
 				</div>
 			</div>
 			<div className='recipes-home'>
-				{recipes.length ? (
+				{loading ? (
+					<div>
+						<img
+							className='loading rotated'
+							src={loadingImg}
+							alt='Loading'
+						/>
+						<h2>¡Loading...!</h2>
+					</div>
+				) : recipes.length ? (
 					[...recipes].map((recipe) => (
 						<Card
 							key={recipe.id}
@@ -229,14 +245,7 @@ export default function Home() {
 						/>
 					))
 				) : (
-					<div>
-						<img
-							className='loading rotated'
-							src={loadingImg}
-							alt='Loading'
-						/>
-						<h2>¡Loading...!</h2>
-					</div>
+					<h1>NO HAY NADA</h1>
 				)}
 			</div>
 			<div className='pagination'>

@@ -2,14 +2,16 @@ import {
 	GET_RECIPES,
 	GET_RECIPES_BY_NAME,
 	GET_RECIPE_BY_ID,
-	GET_DIETS
+	GET_DIETS,
+	SWITCH_LOADING
 } from '../actions/index.js';
 
 const initialState = {
 	recipes: [],
 	recipesByName: [],
 	recipeById: {},
-	diets: []
+	diets: [],
+	loading: true,
 };
 
 function reducer(state = initialState, action) {
@@ -38,6 +40,11 @@ function reducer(state = initialState, action) {
 				diets: action.payload,
 			};
 		}
+		case SWITCH_LOADING:
+            return {
+                ...state,
+                loading: action.payload
+            }
 		default: {
 			return state;
 		}

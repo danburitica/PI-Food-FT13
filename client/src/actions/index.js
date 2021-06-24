@@ -4,6 +4,7 @@ export const GET_RECIPES = 'GET_RECIPES';
 export const GET_RECIPES_BY_NAME = 'GET_RECIPES_BY_NAME';
 export const GET_RECIPE_BY_ID = 'GET_RECIPE_BY_ID';
 export const GET_DIETS = 'GET_DIETS';
+export const SWITCH_LOADING = 'SWITCH_LOADING';
 
 export function getRecipes() {
 	return (dispatch) => {
@@ -39,4 +40,10 @@ export function getDiets() {
 			dispatch({ type: GET_DIETS, payload: response.data });
 		});
 	};
+}
+
+export function switchLoading(boolean) {
+    return function(dispatch) {
+        dispatch({ type: SWITCH_LOADING, payload: boolean })
+    }
 }
