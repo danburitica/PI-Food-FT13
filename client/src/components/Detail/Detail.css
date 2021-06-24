@@ -1,0 +1,57 @@
+.main-container {
+	background-color: #ebebeb;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.detail-container {
+	display: flex;
+	padding: 0 2rem;
+}
+
+.detail-title {
+	font-family: 'Rubik';
+	font-size: 3rem;
+	color: #ff9f1c;
+}
+
+.detail-points {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.detail-points h1 {
+	font-family: 'Poppins';
+	color: #2ec4b6;
+}
+
+.left-container {
+	margin: 0 2rem;
+}
+
+.left-container img {
+	margin-top: 1.5rem;
+	box-shadow: rgb(0 0 0 / 25%) 0px 12px 8px, rgb(0 0 0 / 12%) 0px -12px 30px,
+		rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+		rgb(0 0 0 / 9%) 0px -3px 5px;
+}
+
+.right-container {
+	margin: 0 2rem;
+}
+
+.right-container h2 {
+	font-family: 'Rubik';
+	color: #ff9f1c;
+}
+
+.detail-summary {
+	font-family: 'Poppins';
+	text-align: justify;
+}
+
+.detail-instructions {
+	font-family: 'Poppins';
+	text-align: justify;
+}

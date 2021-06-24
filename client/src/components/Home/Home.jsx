@@ -226,7 +226,10 @@ export default function Home() {
 						/>
 					))
 				) : (
-					<img className='loading' src={loadingImg} alt='Loading' />
+					<div>
+						<img className='loading rotated' src={loadingImg} alt='Loading' />
+						<h2>¡Loading...!</h2>
+					</div>
 				)}
 			</div>
 			<div className='pagination'>
