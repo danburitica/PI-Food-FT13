@@ -1,6 +1,24 @@
 .navbar {
 	background-color: #2ec4b6;
-	margin-bottom: -1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 10vh;
+}
+
+.navbar-left {
+	margin-left: 3rem;
+	font-size: 2rem;
+}
+
+.navbar-left a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.navbar-right {
+	margin-right: 3rem;
 }
 
 .brand-text-navbar {
@@ -8,7 +26,13 @@
 }
 
 .list {
+	list-style-type: none;
 }
 
-.list-item {
+.list-item a {
+	color: #fff;
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-decoration: none;
+	margin-right: 1rem;
 }
