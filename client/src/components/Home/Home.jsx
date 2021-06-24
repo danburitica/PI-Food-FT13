@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes } from '../../actions/index.js';
 import loadingImg from '../../img/loading-img.svg';
 
-import './Home.css'
+import './Home.css';
 
 import Card from '../Card/Card.jsx';
 import Search from '../Search/Search.jsx';
@@ -173,44 +173,48 @@ export default function Home() {
 		<React.Fragment>
 			<div>
 				<div>
-					<div>
-						<span>Sort: </span>
-						<select onChange={handleSort}>
-							<option default value=''></option>
-							<option value='asc'>A-Z</option>
-							<option value='des'>Z-A</option>
-						</select>
-						<span>Order: </span>
-						<select onChange={handleSort}>
-							<option default value=''></option>
-							<option value='high'>High Score</option>
-							<option value='low'>Low Score</option>
-						</select>
+					<div className='filter-sort'>
+						<div>
+							<span>Sort: </span>
+							<select onChange={handleSort}>
+								<option default value=''></option>
+								<option value='asc'>A-Z</option>
+								<option value='des'>Z-A</option>
+							</select>
+
+							<span>Order: </span>
+							<select onChange={handleSort}>
+								<option default value=''></option>
+								<option value='high'>High Score</option>
+								<option value='low'>Low Score</option>
+							</select>
+
+							<span>Filter By Diet: </span>
+							<select className='filter-select' onChange={(e) => setFilter(e.target.value)}>
+								<option default value=''>
+									Select a Diet
+								</option>
+								<option value='gluten free'>Gluten Free</option>
+								<option value='dairy free'>Ketogenic</option>
+								<option value='vegetarian'>Vegetarian</option>
+								<option value='lacto ovo vegetarian'>
+									Lacto-Vegetarian
+								</option>
+								<option value='lacto ovo vegetarian'>
+									Ovo-Vegetarian
+								</option>
+								<option value='vegan'>Vegan</option>
+								<option value='pescatarian'>Pescetarian</option>
+								<option value='paleolithic'>Paleo</option>
+								<option value='primal'>Primal</option>
+								<option value='whole 30'>Whole30</option>;
+							</select>
+						</div>
+						<Search setSearch={setSearch} />
 					</div>
-					<span>Filter By Diet: </span>
-					<select onChange={(e) => setFilter(e.target.value)}>
-						<option default value=''>
-							Select a Diet
-						</option>
-						<option value='gluten free'>Gluten Free</option>
-						<option value='dairy free'>Ketogenic</option>
-						<option value='vegetarian'>Vegetarian</option>
-						<option value='lacto ovo vegetarian'>
-							Lacto-Vegetarian
-						</option>
-						<option value='lacto ovo vegetarian'>
-							Ovo-Vegetarian
-						</option>
-						<option value='vegan'>Vegan</option>
-						<option value='pescatarian'>Pescetarian</option>
-						<option value='paleolithic'>Paleo</option>
-						<option value='primal'>Primal</option>
-						<option value='whole 30'>Whole30</option>;
-					</select>
 				</div>
-				<Search setSearch={setSearch} />
 			</div>
-			<div>
+			<div className='recipes-home'>
 				{recipes.length ? (
 					[...recipes].map((recipe) => (
 						<Card
@@ -222,17 +226,13 @@ export default function Home() {
 						/>
 					))
 				) : (
-					<img
-						className='loading'
-						src={loadingImg}
-						alt='Loading'
-					/>
+					<img className='loading' src={loadingImg} alt='Loading' />
 				)}
 			</div>
-			<div>
-				<button onClick={previous}>PREVIOUS</button>
-				<span>{page}</span>
-				<button onClick={next}>NEXT</button>
+			<div className='pagination'>
+				<button className='btn-page' onClick={previous}>PREVIOUS</button>
+				<span className='num-page'>{page}</span>
+				<button className='btn-page' onClick={next}>NEXT</button>
 			</div>
 		</React.Fragment>
 	);

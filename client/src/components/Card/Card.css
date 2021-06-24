@@ -2,14 +2,15 @@
 	display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30vw;
+    width: 25vw;
     border: 0.3rem solid #ff9f1c91;
+    margin: 1rem 0;
 }
 .img-recipe img{
-	width: 30vw;
+	width: 25vw;
 }
 .card-info{
-	width: 30vw;
+	width: 25vw;
     background-color: #cbf3f082;
 }
 .card-info a{
@@ -18,12 +19,14 @@
 }
 .card-title{
 	font-family: 'Rubik';
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 .card-diets{
 	font-family: 'Poppins';
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: capitalize;
     color: #2ec4b6;
     font-weight: 400;
+    text-align: center;
 }

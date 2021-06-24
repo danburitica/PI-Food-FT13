@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './Card.css';
+
 export default function Card({id, title, image, diets}) {
 	return (
 		<React.Fragment>

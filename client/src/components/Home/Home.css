@@ -1,3 +1,67 @@
+.filter-sort {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ebebeb;
+  height: 10vh;
+}
+
+.filter-sort span {
+  font-family: 'Rubik';
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+}
+
+.filter-sort select {
+  width: 5vw;
+  height: 4vh;
+  margin-right: 1.5rem;
+}
+
+.filter-select {
+  width: 10vw !important;
+}
+
+.recipes-home {
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebebeb;
+  height: 10vh;
+}
+
+.num-page {
+  font-family: 'Rubik';
+  font-size: 2rem;
+  color: #ff9f1c;
+}
+
+.btn-page {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  background-color: #ff9f1c;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.2em;
+  width: 12vw;
+  height: 5vh;
+  margin: 0 2rem;
+}
+
+.btn-page:hover {
+  background-color: #ffbf69;
+  color: #ebebeb;
+}
+
 .loading {
   width: 10vw;
 }
