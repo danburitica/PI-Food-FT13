@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDiets } from '../../actions/index.js';
 
+import './Form.css';
+
 import axios from 'axios';
 
 const initialForm = {
@@ -112,12 +114,11 @@ export default function Form() {
 
 	return (
 		<React.Fragment>
-			<h1>Create a New Recipe!</h1>
-			<form>
-				<div>
-					<div>
-						<label htmlFor='title'>
-							Title
+			<div className='form-main-container'>
+				<h1 className='form-title'>Create a New Recipe!</h1>
+				<form>
+					<div className='form-container'>
+						<div className='form-left-container'>
 							<input
 								type='text'
 								id='title'
@@ -126,9 +127,7 @@ export default function Form() {
 								onChange={handleChange}
 								placeholder='Title'
 							/>
-						</label>
-						<label htmlFor='score'>
-							Score
+
 							<input
 								type='text'
 								id='score'
@@ -137,9 +136,7 @@ export default function Form() {
 								onChange={handleChange}
 								placeholder='Score'
 							/>
-						</label>
-						<label htmlFor='healthScore'>
-							Health Score
+
 							<input
 								type='text'
 								id='healthScore'
@@ -148,9 +145,7 @@ export default function Form() {
 								onChange={handleChange}
 								placeholder='Health Score'
 							/>
-						</label>
-						<label htmlFor='summary'>
-							Summary
+
 							<textarea
 								name='summary'
 								id='summary'
@@ -158,38 +153,7 @@ export default function Form() {
 								onChange={handleChange}
 								placeholder='Summary'
 							></textarea>
-						</label>
-					</div>
-					<div>
-						<div>
-							<p>Diets</p>
-							{diets.length &&
-								diets.map((diet) => (
-									<label
-										htmlFor={diet.id
-											.toLowerCase()
-											.replace(' ', '')
-											.replace('-', '')}
-									>
-										{diet.name}
-										<input
-											key={diet.id}
-											id={diet.id
-												.toLowerCase()
-												.replace(' ', '')
-												.replace('-', '')}
-											type='checkbox'
-											name={diet.name
-												.toLowerCase()
-												.replace(' ', '')
-												.replace('-', '')}
-											onChange={handleChecked}
-										/>
-									</label>
-								))}
-						</div>
-						<label htmlFor='instructions'>
-							Instructions
+
 							<textarea
 								name='instructions'
 								id='instructions'
@@ -197,10 +161,40 @@ export default function Form() {
 								onChange={handleChange}
 								placeholder='Instructions'
 							></textarea>
-						</label>
+						</div>
+						<div className='form-right-container'>
+							<div className='form-diets'>
+								<p>Select the Diets</p>
+								{diets.length &&
+									diets.map((diet) => (
+										<label
+											htmlFor={diet.id
+												.toLowerCase()
+												.replace(' ', '')
+												.replace('-', '')}
+										>
+											{diet.name}
+											<input
+												key={diet.id}
+												id={diet.id
+													.toLowerCase()
+													.replace(' ', '')
+													.replace('-', '')}
+												type='checkbox'
+												name={diet.name
+													.toLowerCase()
+													.replace(' ', '')
+													.replace('-', '')}
+												onChange={handleChecked}
+											/>
+										</label>
+									))}
+							</div>
+						</div>
 					</div>
-					<div>
+					<div className='form-buttons'>
 						<button
+							className='btn-reset'
 							onClick={(e) => {
 								e.preventDefault();
 								setForm(initialForm);
@@ -209,10 +203,12 @@ export default function Form() {
 						>
 							Reset
 						</button>
-						<button onClick={handleSubmit}>Create</button>
+						<button className='btn-create' onClick={handleSubmit}>
+							Create
+						</button>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</React.Fragment>
 	);
 }
