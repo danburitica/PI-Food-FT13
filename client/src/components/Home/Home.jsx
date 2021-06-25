@@ -181,6 +181,22 @@ export default function Home() {
 				});
 				setOrderedRecipes(low);
 			}
+			/*if (e.target.value === 'highHealth') {
+				const asc = [...allRecipes].sort((a, b) => {
+					return a.healthScore < b.healthScore
+						? 1
+						: -1;
+				});
+				setOrderedRecipes(asc);
+			}
+			if (e.target.value === 'lowHealth') {
+				const des = [...allRecipes].sort((a, b) => {
+					return a.healthScore > b.healthScore
+						? 1
+						: -1;
+				});
+				setOrderedRecipes(des);
+			}*/
 		}
 	}
 
@@ -265,6 +281,13 @@ export default function Home() {
 								<option value='high'>High</option>
 								<option value='low'>Low</option>
 							</select>
+
+							{/*<span>Health Score: </span>
+							<select onChange={handleSort}>
+								<option default value=''></option>
+								<option value='highHealth'>High</option>
+								<option value='lowHealth'>Low</option>
+							</select>*/}
 
 							<span>Filter By Diet: </span>
 							<select

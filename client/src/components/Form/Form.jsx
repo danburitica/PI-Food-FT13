@@ -91,22 +91,25 @@ export default function Form() {
 
 	const handleSubmit = function (e) {
 		e.preventDefault();
-		if (
-			!errors.title &&
-			!errors.score &&
-			!errors.healthScore &&
-			!errors.summary &&
-			!errors.instructions
-		) {
-			axios
-				.post('http://localhost:3001/recipe', form)
-				.then((recipe) => {
-					alert('¡Something New to Cook! :)');
-					setForm(initialForm);
-				})
-				.catch((error) =>
-					alert('¡Oops!, an error occurred, try again')
-				);
+		if (errors) {
+			if (
+				!errors.title &&
+				!errors.score &&
+				!errors.healthScore &&
+				!errors.summary &&
+				!errors.instructions
+			) {
+				axios
+					.post('http://localhost:3001/recipe', form)
+					.then((recipe) => {
+						alert('¡Something New to Cook! :)');
+						setForm(initialForm);
+						document.getElementById("createRecipe").reset();
+					})
+					.catch((error) =>
+						alert('¡Oops!, an error occurred, try again')
+					);
+			}
 		} else {
 			alert('Check your New Recipe, there is Something Wrong :(');
 		}
@@ -116,7 +119,7 @@ export default function Form() {
 		<React.Fragment>
 			<div className='form-main-container'>
 				<h1 className='form-title'>Create a New Recipe!</h1>
-				<form>
+				<form id='createRecipe'>
 					<div className='form-container'>
 						<div className='form-left-container'>
 							<p className={errors.title ? 'danger' : 'pass'}>
@@ -222,6 +225,7 @@ export default function Form() {
 								e.preventDefault();
 								setForm(initialForm);
 								setErrors({});
+								document.getElementById("createRecipe").reset();
 							}}
 						>
 							Reset
