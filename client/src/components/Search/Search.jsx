@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getRecipesByName } from '../../actions/index.js';
+import { getRecipesByName, switchLoading } from '../../actions/index.js';
 
 import './Search.css'
 
@@ -15,6 +15,7 @@ export default function Search({ setSearch }) {
 	function handleSubmit(e) {
 		if (nameRecipe) {
 			e.preventDefault();
+			dispatch(switchLoading(true));
 			dispatch(getRecipesByName(nameRecipe));
 			setSearch(true);
 			setNameRecipe('');

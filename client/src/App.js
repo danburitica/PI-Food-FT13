@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Card from './components/Card/Card.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import Form from './components/Form/Form.jsx';
 import Home from './components/Home/Home.jsx';
@@ -14,8 +13,8 @@ function App() {
       <Navbar />
       <Route exact path='/' component={Landing} />
       <Route exact path='/recipes' component={Home} />
-      <Route exact path="/recipes/:id" component={Detail} />
-      <Route exact path="/create" component={Form} />
+      <Route exact path='/recipes/:id' component={Detail} />
+      <Route exact path='/create' component={Form} />
     </React.Fragment>
   );
 }

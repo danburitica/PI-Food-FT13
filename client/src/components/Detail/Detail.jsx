@@ -14,7 +14,7 @@ export default function Detail({
 
 	useEffect(() => {
 		dispatch(getRecipesById(id));
-	}, []);
+	}, [dispatch, id]);
 	return (
 		<React.Fragment>
 			<div className='main-container'>

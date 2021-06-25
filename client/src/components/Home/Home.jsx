@@ -23,41 +23,56 @@ export default function Home() {
 	const [filteredRecipes, setFilteredRecipes] = useState([]);
 	const [orderedRecipes, setOrderedRecipes] = useState([]);
 
+	//INIT
 	useEffect(() => {
-		const start = async () => {
-			await dispatch(getRecipes());
-		};
-		setTimeout(()=>{
+		dispatch(getRecipes());
+		setTimeout(() => {
 			dispatch(switchLoading(false));
-		}, 5000)
-		start();
-	}, []);
+		}, 3000);
+	}, [dispatch]);
 
 	//BÚSQUEDA
 	useEffect(() => {
+		setOrderedRecipes([]);
+		setFilteredRecipes([]);
+		setOffset(0);
+		setPage(1);
 		if (search) {
-			let searchedRecipes = [...searchRecipes];
-			setRecipes(searchedRecipes);
-		} else {
-			setRecipes(allRecipes);
+			setTimeout(() => {
+				dispatch(switchLoading(false));
+			}, 3000);
 		}
-	}, [searchRecipes, search]);
+	}, [dispatch, search, searchRecipes]);
 
 	//FILTROS
+
+	const filterDiets = function (recipe) {
+		let arrayDiets = [];
+		if (recipe.diets) {
+			for(let diet of recipe.diets) {
+				typeof diet === 'object' ? arrayDiets.push(diet.name.toLowerCase()) : arrayDiets.push(diet.toLowerCase());
+			}
+		}
+		if (recipe.vegetarian) {
+			arrayDiets.push('vegetarian')
+		}
+		return arrayDiets;
+	}
+
 	useEffect(() => {
+		setSearch(false);
 		setOffset(0);
 		setPage(1);
 		if (filter) {
-			let filterRecipes = [...allRecipes].filter((recipe) => {
-				if (recipe.diets) {
-					return recipe.diets.includes(filter);
-				}
-			});
+			let filterRecipes = [...allRecipes].filter((recipe) =>{
+				return (filterDiets(recipe) && filterDiets(recipe).includes(filter.toLowerCase()));
+			} 
+			);
 			filterRecipes.length && setFilteredRecipes(filterRecipes);
 		} else {
 			setFilteredRecipes([]);
 		}
-	}, [filter]);
+	}, [filter, allRecipes]);
 
 	//ORDENAMIENTOS
 	function handleSort(e) {
@@ -95,6 +110,41 @@ export default function Home() {
 						: -1;
 				});
 				setFilteredRecipes(low);
+			}
+		} else if (searchRecipes.length && search) {
+			if (e.target.value === 'asc') {
+				const asc = [...searchRecipes].sort((a, b) => {
+					return a.title.toLowerCase() > b.title.toLowerCase()
+						? 1
+						: -1;
+				});
+				setRecipes(asc);
+			}
+			if (e.target.value === 'des') {
+				const des = [...searchRecipes].sort((a, b) => {
+					return a.title.toLowerCase() < b.title.toLowerCase()
+						? 1
+						: -1;
+				});
+				setRecipes(des);
+			}
+			if (e.target.value === 'high') {
+				const high = [...searchRecipes].sort((a, b) => {
+					return (a.score || a.spoonacularScore) <
+						(b.score || b.spoonacularScore)
+						? 1
+						: -1;
+				});
+				setRecipes(high);
+			}
+			if (e.target.value === 'low') {
+				const low = [...searchRecipes].sort((a, b) => {
+					return (a.score || a.spoonacularScore) >
+						(b.score || b.spoonacularScore)
+						? 1
+						: -1;
+				});
+				setRecipes(low);
 			}
 		} else {
 			if (e.target.value === 'asc') {
@@ -138,6 +188,8 @@ export default function Home() {
 	const numRecipes = 9;
 	const maxPage = filteredRecipes.length
 		? Math.ceil(filteredRecipes.length / numRecipes)
+		: searchRecipes.length
+		? Math.ceil(searchRecipes.length / numRecipes)
 		: Math.ceil(allRecipes.length / numRecipes);
 
 	const next = function () {
@@ -155,26 +207,44 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		if (filteredRecipes.length) {
-			let pageRecipes = [...filteredRecipes].slice(
-				offset,
-				offset + numRecipes
-			);
-			setRecipes(pageRecipes);
-		} else if (orderedRecipes.length) {
-			let pageRecipes = [...orderedRecipes].slice(
-				offset,
-				offset + numRecipes
-			);
-			setRecipes(pageRecipes);
+		if (search) {
+			if (searchRecipes) {
+				let pageRecipes = [...searchRecipes].slice(
+					offset,
+					offset + numRecipes
+				);
+				setRecipes(pageRecipes);
+			}
 		} else {
-			let pageRecipes = [...allRecipes].slice(
-				offset,
-				offset + numRecipes
-			);
-			setRecipes(pageRecipes);
+			if (filteredRecipes.length) {
+				let pageRecipes = [...filteredRecipes].slice(
+					offset,
+					offset + numRecipes
+				);
+				setRecipes(pageRecipes);
+			} else if (orderedRecipes.length) {
+				let pageRecipes = [...orderedRecipes].slice(
+					offset,
+					offset + numRecipes
+				);
+				setRecipes(pageRecipes);
+			} else {
+				let pageRecipes = [...allRecipes].slice(
+					offset,
+					offset + numRecipes
+				);
+				setRecipes(pageRecipes);
+			}
 		}
-	}, [allRecipes, filteredRecipes, orderedRecipes, page, offset]);
+	}, [
+		allRecipes,
+		filteredRecipes,
+		orderedRecipes,
+		searchRecipes,
+		page,
+		offset,
+		search,
+	]);
 
 	return (
 		<React.Fragment>
@@ -245,7 +315,7 @@ export default function Home() {
 						/>
 					))
 				) : (
-					<h1>NO HAY NADA</h1>
+					<h1>Recipes not found! Try again.</h1>
 				)}
 			</div>
 			<div className='pagination'>

@@ -60,7 +60,7 @@ export default function Form() {
 
 	useEffect(() => {
 		dispatch(getDiets());
-	}, []);
+	}, [dispatch]);
 
 	const handleChange = function (e) {
 		setErrors(
@@ -119,7 +119,9 @@ export default function Form() {
 				<form>
 					<div className='form-container'>
 						<div className='form-left-container'>
-							<p className={errors.title ? "danger" : "pass"}>{errors.title}</p>
+							<p className={errors.title ? 'danger' : 'pass'}>
+								{errors.title}
+							</p>
 							<input
 								type='text'
 								id='title'
@@ -127,9 +129,11 @@ export default function Form() {
 								value={form.title}
 								onChange={handleChange}
 								placeholder='Title'
-								className={errors.title && "danger"}
+								className={errors.title && 'danger'}
 							/>
-							<p className={errors.score ? "danger" : "pass"}>{errors.score}</p>
+							<p className={errors.score ? 'danger' : 'pass'}>
+								{errors.score}
+							</p>
 							<input
 								type='text'
 								id='score'
@@ -137,9 +141,15 @@ export default function Form() {
 								value={form.score}
 								onChange={handleChange}
 								placeholder='Score'
-								className={errors.score && "danger"}
+								className={errors.score && 'danger'}
 							/>
-							<p className={errors.healthScore ? "danger" : "pass"}>{errors.healthScore}</p>
+							<p
+								className={
+									errors.healthScore ? 'danger' : 'pass'
+								}
+							>
+								{errors.healthScore}
+							</p>
 							<input
 								type='text'
 								id='healthScore'
@@ -147,30 +157,37 @@ export default function Form() {
 								value={form.healthScore}
 								onChange={handleChange}
 								placeholder='Health Score'
-								className={errors.healthScore && "danger"}
+								className={errors.healthScore && 'danger'}
 							/>
-							<p className={errors.summary ? "danger" : "pass"}>{errors.summary}</p>
+							<p className={errors.summary ? 'danger' : 'pass'}>
+								{errors.summary}
+							</p>
 							<textarea
 								name='summary'
 								id='summary'
 								value={form.summary}
 								onChange={handleChange}
 								placeholder='Summary'
-								className={errors.summary && "danger"}
+								className={errors.summary && 'danger'}
 							></textarea>
-							<p className={errors.instructions ? "danger" : "pass"}>{errors.instructions}</p>
+							<p
+								className={
+									errors.instructions ? 'danger' : 'pass'
+								}
+							>
+								{errors.instructions}
+							</p>
 							<textarea
 								name='instructions'
 								id='instructions'
 								value={form.instructions}
 								onChange={handleChange}
 								placeholder='Instructions'
-								className={errors.instructions && "danger"}
+								className={errors.instructions && 'danger'}
 							></textarea>
 						</div>
 						<div className='form-right-container'>
 							<div className='form-diets'>
-								<p>Select the Diets</p>
 								{diets.length &&
 									diets.map((diet) => (
 										<label
@@ -179,7 +196,6 @@ export default function Form() {
 												.replace(' ', '')
 												.replace('-', '')}
 										>
-											{diet.name}
 											<input
 												key={diet.id}
 												id={diet.id
@@ -193,6 +209,7 @@ export default function Form() {
 													.replace('-', '')}
 												onChange={handleChecked}
 											/>
+											{diet.name}
 										</label>
 									))}
 							</div>

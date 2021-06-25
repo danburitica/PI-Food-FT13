@@ -46,18 +46,13 @@
 .form-buttons {
 	display: flex;
 	justify-content: center;
+	margin-top: 2rem;
 }
 
 .form-diets {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Poppins';
-}
-
-.form-diets p {
-	font-family: 'Rubik', sans-serif;
-	color: #ff9f1c;
-	margin-top: 0;
 }
 
 .form-diets label {

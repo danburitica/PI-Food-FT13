@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 25vw;
+    height: 70vh;
     border: 0.3rem solid #ff9f1c91;
     margin: 1rem 0;
 }
@@ -11,6 +12,7 @@
 }
 .card-info{
 	width: 25vw;
+    height: 50vh;
     background-color: #cbf3f082;
 }
 .card-info a{

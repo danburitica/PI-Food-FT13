@@ -11,7 +11,7 @@ export default function Card({id, title, image, diets}) {
 				typeof diet === 'object' ? arrayDiets.push(diet.name) : arrayDiets.push(diet);
 			}
 		}
-		return arrayDiets.join(', ');
+		return arrayDiets.length ? arrayDiets.join(', ') : 'Diets Not Found!'
 	}
 	return (
 		<React.Fragment>
