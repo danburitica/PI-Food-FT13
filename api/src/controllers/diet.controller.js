@@ -30,7 +30,7 @@ let diets = [
 		name: 'Primal',
 	},
 	{
-		name: 'Whole30',
+		name: 'Whole 30',
 	},
 ];
 
