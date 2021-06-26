@@ -6,7 +6,7 @@ conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
-    Recipe.create({
+    /*Recipe.create({
       title: 'Asado Argentino',
       image:
         'https://www.tangol.com/blog/Fotos/Notas/lo-que-tenes-que-saber-de-un-tipico-asado-argentino_1049_202011260625490.PNG',
@@ -72,6 +72,6 @@ conn.sync({ force: true }).then(() => {
       healthScore: 95,
       instructions:
         'En una olla se coloca el agua, canela y la panela a hervir hasta que la panela o azúcar se derrita completamente.Se retiran las astillas de canela y se sirve caliente o fría. Se puede agregar el limón al servir.',
-    });
+    });*/
   });
 });
