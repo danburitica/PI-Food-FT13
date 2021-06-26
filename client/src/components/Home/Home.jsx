@@ -327,7 +327,7 @@ export default function Home() {
 						/>
 						<h2>¡Loading...!</h2>
 					</div>
-				) : recipes.length ? (
+				) : recipes.length>0 ? (
 					[...recipes].map((recipe) => (
 						<Card
 							key={recipe.id}

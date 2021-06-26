@@ -91,25 +91,29 @@ export default function Form() {
 
 	const handleSubmit = function (e) {
 		e.preventDefault();
-		if (errors) {
-			if (
-				!errors.title &&
-				!errors.score &&
-				!errors.healthScore &&
-				!errors.summary &&
-				!errors.instructions
-			) {
-				axios
-					.post('http://localhost:3001/recipe', form)
-					.then((recipe) => {
-						alert('¡Something New to Cook! :)');
-						setForm(initialForm);
-						document.getElementById("createRecipe").reset();
-					})
-					.catch((error) =>
-						alert('¡Oops!, an error occurred, try again')
-					);
-			}
+		if (
+			!errors.title &&
+			form.title &&
+			!errors.score &&
+			form.score &&
+			!errors.healthScore &&
+			form.healthScore &&
+			!errors.summary &&
+			form.summary &&
+			!errors.instructions &&
+			form.instructions &&
+			form.diets.length
+		) {
+			axios
+				.post('http://localhost:3001/recipe', form)
+				.then((recipe) => {
+					alert('¡Something New to Cook! :)');
+					setForm(initialForm);
+					document.getElementById('createRecipe').reset();
+				})
+				.catch((error) =>
+					alert('¡Oops!, an error occurred, try again')
+				);
 		} else {
 			alert('Check your New Recipe, there is Something Wrong :(');
 		}
@@ -191,7 +195,7 @@ export default function Form() {
 						</div>
 						<div className='form-right-container'>
 							<div className='form-diets'>
-								{diets.length &&
+								{diets.length > 0 &&
 									diets.map((diet) => (
 										<label
 											htmlFor={diet.id
@@ -225,7 +229,7 @@ export default function Form() {
 								e.preventDefault();
 								setForm(initialForm);
 								setErrors({});
-								document.getElementById("createRecipe").reset();
+								document.getElementById('createRecipe').reset();
 							}}
 						>
 							Reset
