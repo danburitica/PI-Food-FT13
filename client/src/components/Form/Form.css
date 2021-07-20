@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	background-color: #ebebeb;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .form-title {
@@ -46,7 +46,7 @@
 .form-buttons {
 	display: flex;
 	justify-content: center;
-	margin-top: 2rem;
+	top: 2rem;
 }
 
 .form-diets {
@@ -99,6 +99,7 @@ p.danger {
 	color: #f55c47;
 	text-align: center;
 	margin: 0;
+	font-size: 0.7rem;
 }
 
 p.pass {

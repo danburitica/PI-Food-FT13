@@ -1,0 +1,75 @@
+.about-background-container {
+	background-color: #ebebeb;
+	display: flex;
+	justify-content: center;
+	min-height: 90vh;
+}
+
+.about-main-container {
+	border-radius: 1rem;
+	width: 50vw;
+	height: 70vh;
+	margin-top: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	-webkit-box-shadow: 0px 0px 20px 10px rgba(46, 196, 182, 0.5);
+	box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 31%);
+}
+
+.about-main-container h1 {
+	font-family: 'Rubik', sans-serif;
+	margin: 0.5rem 0;
+}
+
+.about-info {
+	display: flex;
+	align-items: center;
+}
+
+.about-info p {
+	font-family: 'Poppins', sans-serif;
+	text-align: justify;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+.about-info p a {
+	color: #000;
+	text-decoration: none;
+	margin-right: 1rem;
+}
+
+.about-info img {
+	width: 15vw;
+	margin-left: 1rem;
+}
+
+.about-contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.about-contact h2 {
+	font-family: 'Rubik', sans-serif;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+.about-contact p {
+	font-family: 'Poppins', sans-serif;
+	text-align: justify;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+.about-contact a img {
+	width: 4vw;
+	border-radius: 50%;
+}
+
+.contact-icons a img {
+	margin: 0 1rem;
+}

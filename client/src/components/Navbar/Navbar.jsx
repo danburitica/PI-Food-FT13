@@ -14,6 +14,7 @@ export default function Navbar() {
                     <li className="list-item">
                         <Link to="/recipes" >Explore Recipes</Link>
                         <Link to="/create" >Create a Recipe</Link>
+                        <Link to="/about" >About</Link>
                     </li>
                 </ul>
             </nav>
