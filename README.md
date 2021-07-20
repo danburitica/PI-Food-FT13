@@ -12,5 +12,5 @@ El proyecto permite visualizar recetas de varios platos, también se puede hacer
 
 <img width="90%" src="img/Landing.PNG" alt="Landing" title="Landing"/>
 <img width="90%" src="img/Home.PNG" alt="Home" title="Home"/>
-<img width="90%" src="img/Detail.PNG" alt="Landing" title="Landing"/>
+<img width="90%" src="img/Detail.PNG" alt="Detail" title="Detail"/>
 <img width="90%" src="img/Form.PNG" alt="Form" title="Form"/>
