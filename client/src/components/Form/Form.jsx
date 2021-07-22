@@ -15,6 +15,8 @@ const initialForm = {
 	instructions: '',
 };
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 const validateForm = function (form) {
 	let errors = {};
 	if (!form.title) {
@@ -105,7 +107,7 @@ export default function Form() {
 			form.diets.length
 		) {
 			axios
-				.post('http://localhost:3001/recipe', form)
+				.post(`${API_URL}/recipe`, form)
 				.then((recipe) => {
 					alert('¡Something New to Cook! :)');
 					setForm(initialForm);
